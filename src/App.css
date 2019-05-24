@@ -18,16 +18,50 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.square-style{
+color: white;
+background-color:blue;
+display: flex;
+height: 150px;
+width: 150px;
+border-radius: 15px;
+transition: background-color 1s;
+}
+.start-btn{
+padding-left: 15px;
+padding-right: 15px;
+border-style: none;
+border-radius: 20px;
+font-size: 24px;
+color: white;
+background: orange;
+}
+.start-btn:hover{
+padding-left: 15px;
+padding-right: 15px;
+border-style: none;
+border-radius: 20px;
+font-size: 26px;
+color: white;
+background: darkorange;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#gameboard{
+display: flex;
+flex-wrap: wrap;
+width: 500px;
+justify-content: center;
+margin: auto;
+padding-bottom: 20px;
+}
+.main{
+
+  transition: color 2s;
+}
+.square-style :hover{
+  border-radius: 1px;
+}
+.board-style{
+  display: flex;
+  justify-content: center;
 }
