@@ -21,7 +21,6 @@ class Board extends React.Component{
 
 
   refreshFunction = () =>{
-    let {squareState, gameBoard, playerTries, gameInProgress, losingState}=this.state
 //add function to refresh board or page
     this.setState({
       squareState: [0,0,0,0,0,0,0,0,0],
@@ -33,8 +32,7 @@ class Board extends React.Component{
   }
 
   playerAttempt = () => {
-    let { playerTries, losingState, winningStreak} = this.state
-    console.log(playerTries);
+    let { playerTries } = this.state
       if(playerTries === 0){
         alert("You Lose")
         this.setState({winningStreak: 0})
@@ -50,31 +48,26 @@ class Board extends React.Component{
     //deconstruct square setState
     const {squareState} = this.state
     const arrlength = squareState.length
-    console.log(`arrlength is ${arrlength}`);
     //generate a random number between 0 and the length of the array of squarestate
     const randNumber = Math.floor(Math.random()*arrlength)
-    console.log(`randomNum ran ${randNumber} and squarestate is ${squareState}`);
     // places a 1 randomly in the squareState array
     let arrayWithOne = squareState.splice(randNumber, 1, 1)
     this.setState({squareState: arrayWithOne})
 
-    console.log(`randomNum ran ${arrayWithOne} and squarestate is ${squareState}`);
-
-
   }
   playerWin = () => {
-    let {winningStreak, squareState}=this.state
+    let { winningStreak }=this.state
     this.setState({winningStreak: winningStreak+1})
   }
     startGame = () =>{
-      const{ gameBoard, squareState, playerTries, gameInProgress} = this.state
+      const{ squareState } = this.state
       const {playerAttempt, refreshFunction, playerWin, nextLevel, Continue}= this
       this.randomNum()
       const board = squareState.map(mapHandler)
       //function to create squares and choose winning square
       function mapHandler(value, index,){
 
-        console.log(`square ${index +1} and value is ${value}`);
+
         return (<div
                 className="singlesquare"
                 key={index}>
@@ -94,9 +87,9 @@ class Board extends React.Component{
 
     }
     render(){
-      let { gameBoard, playerTries, buttonDiv, gameInProgress, backgroundChanger, losingState, winningStreak} = this.state
+      let { gameBoard, playerTries, gameInProgress, losingState, winningStreak} = this.state
       return(
-        <div style={{background:backgroundChanger[winningStreak]}} className="main">
+        <div className="main">
         <div className="btn-container">
         <p>You have a winning streak of: {winningStreak}</p>
 

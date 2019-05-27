@@ -14,8 +14,7 @@ class Square extends React.Component{
 
     }
     onclickchange =()=>{
-        let { squareStyle }=this.state
-        const {playerWin, winningBool, playerAttempt, playerTries, refreshFunction}=this.props
+        const {playerWin, winningBool, playerAttempt, refreshFunction}=this.props
       if (winningBool === 1){
         this.setState({squareStyle:{
         background: "green"
@@ -34,7 +33,6 @@ class Square extends React.Component{
         this.setState({squareStyle:{
         background: "red"
         }})
-        console.log(`onclickchange function ran ${winningBool} player has ${playerTries} lives`);
       }
 
       return
